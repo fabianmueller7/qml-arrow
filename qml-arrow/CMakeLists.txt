@@ -8,10 +8,9 @@ find_package(Qt6 6.4 REQUIRED COMPONENTS Quick)
 
 qt_standard_project_setup()
 
-qt_add_executable(appqml-arrow
-    main.cpp
-)
-
+set(SOURCES main.cpp)
+qt_add_resources(SOURCES resources.qrc)
+add_executable(appqml-arrow ${SOURCES})
 
 qt_add_qml_module(appqml-arrow
     URI qml-arrow

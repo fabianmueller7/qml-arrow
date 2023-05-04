@@ -19,10 +19,12 @@ Window {
         spacing: 3
 
         Item {
-            // spacer item
+            id: spacer
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Rectangle { anchors.fill: parent; color: "#ffaaaa" } // to visualize the spacer
+            //Rectangle { anchors.fill: parent; color: "#000000" } // to visualize the spacer
+
+            Image { source: "qrc:/resources/images/arrow.png" }
         }
 
         RowLayout {
@@ -30,19 +32,19 @@ Window {
             Button {
                 text: "left"
                 Layout.fillWidth: true
-                onClicked: animator.drawArrow()
+                onClicked: animator.drawArrow("left")
             }
 
             Button {
                 text: "center"
                 Layout.fillWidth: true
-                onClicked: animator.drawArrow()
+                onClicked: animator.drawArrow("center")
             }
 
             Button {
                 text: "right"
                 Layout.fillWidth: true
-                onClicked: animator.drawArrow()
+                onClicked: animator.drawArrow("right")
             }
         }
     }

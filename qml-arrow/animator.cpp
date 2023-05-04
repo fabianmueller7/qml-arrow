@@ -7,7 +7,7 @@ Animator::Animator(QObject *parent)
 
 }
 
-void Animator::drawArrow()
+void Animator::drawArrow(QString direction)
 {
-    qDebug() << "About to draw something";
+    qDebug() << "About to draw:" << direction  ;
 }

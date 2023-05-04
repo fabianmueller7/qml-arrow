@@ -12,7 +12,7 @@ public:
 signals:
 
 public slots:
-    void drawArrow();
+    void drawArrow(QString direction);
 
 };
 
