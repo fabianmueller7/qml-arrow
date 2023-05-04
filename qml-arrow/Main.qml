@@ -8,11 +8,14 @@ Window {
     width: 640
     height: 480
     visible: true
-    title: qsTr("Hello World")
+    title: qsTr("Arrow")
+    color: "#000000"
+
 
     Animator {
         id: animator
     }
+
 
     ColumnLayout {
         anchors.fill: parent
@@ -22,9 +25,14 @@ Window {
             id: spacer
             Layout.fillWidth: true
             Layout.fillHeight: true
-            //Rectangle { anchors.fill: parent; color: "#000000" } // to visualize the spacer
 
-            Image { source: "qrc:/resources/images/arrow.png" }
+            AnimatedImage {
+                id: arrow
+                anchors.centerIn: parent
+                scale: 2
+                source: "qrc:/resources/images/scrolling-arrow.gif"
+
+            }
         }
 
         RowLayout {
@@ -32,19 +40,25 @@ Window {
             Button {
                 text: "left"
                 Layout.fillWidth: true
-                onClicked: animator.drawArrow("left")
+                onClicked: {
+                    arrow.rotation = 180;
+                }
             }
 
             Button {
                 text: "center"
                 Layout.fillWidth: true
-                onClicked: animator.drawArrow("center")
+                onClicked: {
+                    arrow.rotation = 270;
+                }
             }
 
             Button {
                 text: "right"
                 Layout.fillWidth: true
-                onClicked: animator.drawArrow("right")
+                onClicked: {
+                    arrow.rotation = 0;
+                }
             }
         }
     }
