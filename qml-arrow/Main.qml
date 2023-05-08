@@ -5,17 +5,16 @@ import QtQuick.Layouts
 import Animator
 
 Window {
+    id: window
     width: 640
     height: 480
     visible: true
     title: qsTr("Arrow")
     color: "#000000"
 
-
     Animator {
         id: animator
     }
-
 
     ColumnLayout {
         anchors.fill: parent
@@ -29,7 +28,7 @@ Window {
             AnimatedImage {
                 id: arrow
                 anchors.centerIn: parent
-                scale: 2
+                anchors.fill: parent
                 source: "qrc:/resources/images/scrolling-arrow.gif"
 
             }
@@ -59,6 +58,20 @@ Window {
                 onClicked: {
                     arrow.rotation = 0;
                 }
+            }
+        }
+
+        Button {
+            text: "FullScreen"
+            Layout.fillWidth: true
+            onClicked: {
+                // 5 = FullScreen
+                // 2 = Window
+                if(window.visibility === 5)
+                    window.visibility = 2;
+                else if(window.visibility === 2)
+                    window.visibility = 5;
+
             }
         }
     }
